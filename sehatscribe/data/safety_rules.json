@@ -1,0 +1,24 @@
+{
+  "_comment": "Illustrative adult dose limits for the MVP safety check. NOT clinically validated: replace with the state's Standard Treatment Guidelines / National Formulary of India before any clinical use.",
+  "drugs": {
+    "paracetamol": {"max_single_mg": 1000, "max_daily_mg": 4000, "max_days": 7},
+    "ibuprofen": {"max_single_mg": 800, "max_daily_mg": 2400, "max_days": 10, "class": "nsaid"},
+    "diclofenac": {"max_single_mg": 75, "max_daily_mg": 150, "max_days": 10, "class": "nsaid"},
+    "amoxicillin": {"max_single_mg": 1000, "max_daily_mg": 3000, "max_days": 14},
+    "azithromycin": {"max_single_mg": 500, "max_daily_mg": 500, "max_days": 5},
+    "metformin": {"max_single_mg": 1000, "max_daily_mg": 2550},
+    "amlodipine": {"max_single_mg": 10, "max_daily_mg": 10},
+    "cetirizine": {"max_single_mg": 10, "max_daily_mg": 10},
+    "ondansetron": {"max_single_mg": 8, "max_daily_mg": 24},
+    "pantoprazole": {"max_single_mg": 40, "max_daily_mg": 80}
+  },
+  "condition_rules": [
+    {
+      "code": "NSAID_IN_DENGUE",
+      "when_diagnosis": ["dengue"],
+      "avoid_class": "nsaid",
+      "severity": "critical",
+      "message": "NSAIDs are generally avoided when dengue is suspected (bleeding risk). Consider paracetamol."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Snapdragon NPU acceleration (Windows on Snapdragon, ARM64 Python)
+onnxruntime-qnn>=1.18
+onnxruntime-genai>=0.5
+# The Genie path needs the Qualcomm AI Runtime (QAIRT) SDK and a model bundle
+# exported from Qualcomm AI Hub; see docs/NPU_SETUP.md.

@@ -1,0 +1,11 @@
+DOCTOR: Namaste, bataiye kya takleef hai?
+DAUGHTER: Doctor sahab, papa ko teen din se bukhar hai, raat ko zyada hota hai.
+PATIENT: Sar mein dard bhi hai aur badan dard ho raha hai.
+DOCTOR: Ulti ya dast hua?
+PATIENT: Nahi, ulti nahi hui.
+DOCTOR: Koi dawai li hai?
+DAUGHTER: Ghar pe crocin di thi.
+DOCTOR: Chaliye BP aur temperature dekhte hain. BP 128/84, temperature 101.2, oxygen 97.
+DOCTOR: Lagta hai viral fever hai, par malaria aur dengue ka shak hai. Malaria test aur CBC karwaiye.
+DOCTOR: Paracetamol 650 mg din mein teen baar, teen din tak. Paani zyada pijiye, aaram kijiye.
+DOCTOR: Do din baad report ke saath dobara aaiye.

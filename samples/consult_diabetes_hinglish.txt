@@ -1,0 +1,8 @@
+DOCTOR: Aapka sugar check kiya tha?
+PATIENT: Haan, fasting sugar 168 aaya tha. Pyaas zyada lagti hai aur baar baar peshab jaana padta hai.
+DOCTOR: Kitne mahine se?
+PATIENT: Do mahine se.
+DOCTOR: BP 148/94, pulse 82, weight 78 kg.
+DOCTOR: Diabetes aur hypertension hai. Metformin 500 mg din mein do baar, aur amlodipine 5 mg din mein ek baar, ek mahine tak.
+DOCTOR: Namak kam aur meetha kam kijiye, roz walk kijiye. HbA1c test karwaiye.
+DOCTOR: Ek mahine baad aaiye.

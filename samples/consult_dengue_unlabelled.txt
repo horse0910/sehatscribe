@@ -1,0 +1,8 @@
+# Unlabelled transcript: roles are inferred by the classifier.
+Kya takleef hai?
+Paanch din se tez bukhar hai, aankhon ke peeche dard aur badan dard.
+Daane bhi hain?
+Haan, kal se haath pe daane aaye hain.
+Temperature 102, BP 110/70, pulse 104. Dengue ka shak hai. NS1 test aur CBC karwaiye.
+Ibuprofen 400 mg din mein teen baar, paanch din. Paani zyada pijiye.
+Teen din baad aaiye.

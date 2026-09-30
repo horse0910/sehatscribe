@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Local data and secrets — never commit
+*.db
+*.key
+.env
+
+# Model bundles are large and licensed separately
+models/
+genie_bundle/
+*.onnx
+*.bin
+
+# Audio
+*.wav
+*.webm
+*.mp3

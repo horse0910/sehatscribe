@@ -1,0 +1,2 @@
+# Speech-to-text on CPU (multilingual Whisper via CTranslate2)
+faster-whisper>=1.0

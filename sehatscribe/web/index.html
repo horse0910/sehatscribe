@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SehatScribe</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo-dot"></span>Sehat<span class="accent">Scribe</span></div>
+  <div class="status" id="runtime">Checking device…</div>
+</header>
+
+<main class="layout">
+  <!-- Column 1: encounter + capture -->
+  <section class="col">
+    <div class="card" id="new-card">
+      <h2>New consultation</h2>
+      <form id="new-form" class="grid2">
+        <label>Patient name<input name="patient_name" autocomplete="off"></label>
+        <label>Age<input name="patient_age" type="number" min="0" max="130"></label>
+        <label>Sex<select name="patient_sex"><option value="">—</option><option>female</option><option>male</option><option>other</option></select></label>
+        <label>ABHA number<input name="abha_number" placeholder="14 digits" autocomplete="off"></label>
+        <label>Language<select name="language"><option value="hi">Hindi / Hinglish</option><option value="en">English</option></select></label>
+        <label class="consent"><input type="checkbox" name="consent_given"> Patient consented to recording &amp; AI note-taking (on this device only)</label>
+        <button class="btn primary span2" type="submit">Start consultation</button>
+      </form>
+    </div>
+
+    <div class="card hidden" id="capture-card">
+      <div class="row between"><h2>Consultation</h2><span class="pill" id="enc-id"></span></div>
+      <div class="tabs">
+        <button class="tab active" data-tab="type">Paste transcript</button>
+        <button class="tab" data-tab="record">Record</button>
+      </div>
+      <div class="tabpanel" id="tab-type">
+        <textarea id="transcript-text" rows="9" placeholder="DOCTOR: Kya takleef hai?&#10;DAUGHTER: Papa ko teen din se bukhar hai…"></textarea>
+        <div class="row">
+          <button class="btn ghost" id="load-sample">Load sample</button>
+          <button class="btn primary" id="save-transcript">Use transcript</button>
+        </div>
+      </div>
+      <div class="tabpanel hidden" id="tab-record">
+        <p class="muted">Audio is transcribed on this PC and deleted immediately.</p>
+        <div class="row">
+          <button class="btn primary" id="rec-btn">● Start recording</button>
+          <label class="btn ghost file">Upload audio<input type="file" id="audio-file" accept="audio/*"></label>
+        </div>
+        <p class="muted" id="rec-status"></p>
+      </div>
+      <div id="transcript-view" class="transcript"></div>
+      <button class="btn primary wide hidden" id="draft-btn">Draft note</button>
+    </div>
+  </section>
+
+  <!-- Column 2: SOAP note -->
+  <section class="col wide-col">
+    <div class="card hidden" id="note-card">
+      <div class="row between"><h2>Draft SOAP note</h2><span class="pill" id="engine"></span></div>
+      <div id="note"></div>
+      <label class="block">Doctor's remarks<textarea id="remarks" rows="2"></textarea></label>
+      <div class="row"><button class="btn ghost" id="save-note">Save edits &amp; re-check</button></div>
+    </div>
+  </section>
+
+  <!-- Column 3: safety, sign, outputs -->
+  <section class="col">
+    <div class="card hidden" id="flags-card">
+      <h2>Safety checks</h2>
+      <div id="flags"></div>
+    </div>
+    <div class="card hidden" id="sign-card">
+      <h2>Review &amp; sign</h2>
+      <form id="sign-form" class="grid2">
+        <label>Doctor ID<input name="doctor_id" autocomplete="username"></label>
+        <label>PIN<input name="pin" type="password" inputmode="numeric" autocomplete="current-password"></label>
+        <button class="btn primary span2" type="submit">Sign note</button>
+      </form>
+      <div id="signed" class="hidden">
+        <p class="ok" id="signed-text"></p>
+        <div class="row">
+          <a class="btn primary" id="fhir-link" download>Download FHIR record</a>
+          <button class="btn ghost" id="print-btn">Print summary</button>
+        </div>
+      </div>
+    </div>
+    <div class="card hidden" id="summary-card">
+      <div class="row between"><h2>Patient summary</h2>
+        <div class="seg"><button data-lang="hi" class="active">हिंदी</button><button data-lang="en">EN</button></div>
+      </div>
+      <div id="summary" class="summary"></div>
+    </div>
+  </section>
+</main>
+
+<dialog id="setup">
+  <form id="setup-form" method="dialog" class="grid2">
+    <h2 class="span2">First-time setup</h2>
+    <p class="muted span2">Create the doctor who will sign notes on this PC. The PIN never leaves the device.</p>
+    <label>Doctor ID<input name="doctor_id" required pattern="[\w.\-]+"></label>
+    <label>Display name<input name="display_name" required></label>
+    <label class="span2">PIN (4–12 digits)<input name="pin" required pattern="\d{4,12}" type="password" inputmode="numeric"></label>
+    <button class="btn primary span2" type="submit">Save</button>
+  </form>
+</dialog>
+
+<div id="toast" class="toast hidden"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
