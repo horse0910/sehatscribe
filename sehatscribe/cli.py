@@ -95,6 +95,10 @@ def cmd_runtime(_args) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    # Windows consoles often default to a legacy code page that cannot print Hindi.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     p = argparse.ArgumentParser(prog="sehatscribe", description="Offline AI clinical scribe for Snapdragon PCs")
     sub = p.add_subparsers(dest="cmd", required=True)
 
